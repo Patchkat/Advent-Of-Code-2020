@@ -1,0 +1,1 @@
+f = [x.rstrip('\n') for x in open('map.txt').readlines()]
