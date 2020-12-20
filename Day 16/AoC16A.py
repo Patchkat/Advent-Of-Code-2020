@@ -1,4 +1,4 @@
-f = [x.rstrip('\n') for x in open('tickets.txt').readlines()]
+f = [x.rstrip('\n') for x in open('train.txt').readlines()]
 vals = {}
 nearby = False
 wrong = []

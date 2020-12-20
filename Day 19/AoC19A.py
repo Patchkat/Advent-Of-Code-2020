@@ -36,7 +36,7 @@ def memoize(inp_str, num):
     memoized[tests] = result
     return result
 
-f = [x.rstrip('\n') for x in open('input.txt').readlines()]
+f = [x.rstrip('\n') for x in open('messages.txt').readlines()]
 x = 0
 rules = {}
 memoized = {}

@@ -31,7 +31,7 @@ def total_seats():
 
 f = []
 next_step = []
-for x in open('input.txt').readlines():
+for x in open('seats.txt').readlines():
     f.append([c for c in x.rstrip('\n')])
 
 for x in f:
