@@ -1,33 +1,34 @@
+# Function used to evaluate equations using the new order of operations
 def solve_equation(equation):
     total = 0
-    y = 0
-    while y < len(equation):
-        if equation[y] == '+':
-            total = int(equation[y-1]) + int(equation[y+1])
-            equation.pop(y-1)
-            equation.pop(y-1)
-            equation.pop(y-1)
-            equation.insert(y-1, str(total))
+    loop = 0
+    while loop < len(equation):
+        if equation[loop] == '+':
+            total = int(equation[loop-1]) + int(equation[loop+1])
+            equation.pop(loop-1)
+            equation.pop(loop-1)
+            equation.pop(loop-1)
+            equation.insert(loop-1, str(total))
         else:
-            y += 1
-    y = 0
-    while y < len(equation):
-        if equation[y] == '*':
-            total = int(equation[y-1]) * int(equation[y+1])
-            equation.pop(y-1)
-            equation.pop(y-1)
-            equation.pop(y-1)
-            equation.insert(y-1, str(total))
+            loop += 1
+    loop = 0
+    while loop < len(equation):
+        if equation[loop] == '*':
+            total = int(equation[loop-1]) * int(equation[loop+1])
+            equation.pop(loop-1)
+            equation.pop(loop-1)
+            equation.pop(loop-1)
+            equation.insert(loop-1, str(total))
         else:
-            y += 1
+            loop += 1
     return total
 
 
-f = [x.rstrip('\n') for x in open('input.txt').readlines()]
+f = [equations.rstrip('\n') for equations in open('input.txt').readlines()]
 total = 0
-for y, _ in enumerate(f):
-    x = f[y].replace(' ', '')
-    x = [c for c in x]
+for loop, _ in enumerate(f):
+    equation_final = f[loop].replace(' ', '')
+    equation_final = [c for c in x]
     order = []
     while len(x) > 0:   
         order.append(x.pop(0))

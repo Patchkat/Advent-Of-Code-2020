@@ -1,12 +1,15 @@
+# A function to apply the bitmask to the value in memory
 def apply_mask(num, mask):
     mask = [c for c in mask]
+    # Convert the value to a binary number of the same length as the mask
     num = ''.join(['0' for x in range(36 - len(num))]) + num
     num = [c for c in num]
-    for y, x in enumerate(mask):
-        if x == "X" or x == '1':
-            num[y] = mask[y]
+    # Apply the mask
+    for pos, value in enumerate(mask):
+        if value == "X" or value == '1':
+            num[pos] = mask[pos]
     
-    poss = []
+    num_x_positions = []
     for x in range(len(num)):
         if num[x] == 'X' or num[x] == '1':
             num = num[x:]
@@ -14,10 +17,10 @@ def apply_mask(num, mask):
 
     for x in range(len(num)):
         if num[x] == 'X':
-            poss.append(x)
+            num_x_positions.append(x)
 
     nums = []
-    nums = create_numbers(num, poss, 0, nums)
+    nums = create_numbers(num, num_x_positions, 0, nums)
     
     return [x for x in nums if x != None]
 
